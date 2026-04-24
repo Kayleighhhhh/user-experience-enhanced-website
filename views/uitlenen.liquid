@@ -16,9 +16,14 @@
         <h2>{{ instrument.name }}</h2>
     </header>
 
+    <picture>
+        <source srcset="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=avif&quality=25" type="image/avif">
+        <source srcset="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=webp&quality=25" type="image/webp">
+        <img class="uit-img" src="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=jpg&quality=25" alt="{{ instrument.name }}" fetchpriority="high" width="452" height="320">
+    </picture>
+
     <form class="uit-form" action="/instrumenten/{{ instrument.key }}/uitlenen" method="POST">
-        <img class="uit-img" src="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}" alt="{{ instrument.name }}">
-        {% comment %} <img src="assets/DSC_0473.jpg" alt="" class="uit-img"> {% endcomment %}
+        
 
         <label for="name" class="veld">Wie leent het?
         <input type="text" id="name" name="studentName" placeholder="Volledige naam" required></label>

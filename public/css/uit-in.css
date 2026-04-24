@@ -9,12 +9,7 @@
         }
     }
 
-    .uit-form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-
-        .uit-img { 
+    .uit-img { 
             width: 100%;
             border-radius: 12px;
             display: block;
@@ -22,6 +17,12 @@
             justify-self: center;
             object-fit: cover;
         }
+
+    .uit-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
 
         .veld {
             display: flex;
