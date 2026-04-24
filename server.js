@@ -76,7 +76,7 @@ app.get('/instrumenten/:key', async function (request, response) {
 
 // console.log("hoi")
 //   console.log(params)
-//   console.log(instrumentResponseJSON)
+  console.log(instrumentResponseJSON)
 
   //render detail.liquid en geef [0] mee aan de extra info zodat hij alleen de eerste uit de array pakt
   response.render('detail.liquid', {
@@ -127,7 +127,7 @@ try {
       'Content-Type': 'application/json;charset=UTF-8'
     }
   })
-  const patchResponse = await fetch(`${baseUrl}${request.params.id}`, {
+  const patchResponse = await fetch(`${baseUrl}${request.body.id}`, {
     method: "PATCH",
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
@@ -187,7 +187,7 @@ try {
     })
   })
 
-  const patchResponse = await fetch(`${baseUrl}${request.params.id}`, {
+  const patchResponse = await fetch(`${baseUrl}${request.body.id}`, {
     method: "PATCH",
     headers: { 
       'Content-Type': 'application/json;charset=UTF-8'
@@ -196,10 +196,10 @@ try {
       status: "Beschikbaar"
     })
   })
-
+  // console.log(patchResponse)
 
   // log de resultaten in je terminal voor controle
-  console.log('Inname gelukt voor ID:', request.body.id)
+  // console.log('Inname gelukt voor ID:', request.body.id)
 
  if (patchResponse.ok) {
       // API zegt: Gelukt! We sturen success=true mee
@@ -233,7 +233,7 @@ app.get('/instrumenten/:key/schade', async function (request, response) {
 app.post('/instrumenten/:key/schade', async function (request, response) {
 
 try {
-  const patchResponse = await fetch(`${baseUrl}${request.params.id}`, {
+  const patchResponse = await fetch(`${baseUrl}${request.body.id}`, {
     method: "PATCH",
     headers: { 
       'Content-Type': 'application/json;charset=UTF-8'
