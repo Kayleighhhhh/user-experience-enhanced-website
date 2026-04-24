@@ -74,6 +74,39 @@
     </section>
 </section>
 
+<script type="module">
 
+    const schadeForm = document.querySelector(".schade-status-update")
+    const schadeBtn = schadeForm.querySelector("button")
+    const status = schadeForm.querySelector("p")
+
+    schadeForm.addEventListener("submit", async function(event) {
+
+        event.preventDefault()
+
+        schadeBtn.classList.add("loading")
+        schadeBtn.textContent = "laden..."
+
+        let formData = new FormData(schadeForm);
+
+        const response = await fetch(schadeForm.action, {
+            method: schadeForm.method,
+            body: new URLSearchParams(formData)
+        })
+
+        const responseData = await response.text()
+
+        const parser = new DOMParser()
+        const responseDOM = parser.parseFromString(responseData, 'text/html')
+
+        const newState = responseDOM.querySelector('.schade-status-update p')
+
+        status.innerHTML = newState.innerHTML
+
+        console.log("Loading state weghalen")
+        schadeBtn.classList.remove("loading")
+        schadeBtn.textContent = "✅ De status is aangepast!"
+    })
+</script>
 
 {% render 'partials/foot.liquid' %}
