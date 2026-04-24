@@ -1,0 +1,94 @@
+.instrument-detail {
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (min-width: 800px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: max-content 1fr;
+        grid-template-areas: 
+            "head content"
+            "fig content";
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        align-items: start;
+    }
+
+    header {
+        grid-area: head;
+        a { font-weight: bold; color: var(--secondair); }
+        h1 { font-size: clamp(2rem, 8vw, 3.5rem); margin: 0.5rem 0 0; }
+        p { font-size: 1.2rem; opacity: 0.7; }
+    }
+
+    figure {
+        grid-area: fig;
+        position: relative;
+        margin: 0;
+
+        img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            height: 20em;
+            justify-self: center;
+            object-fit: cover;
+        }
+
+        .status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--lighttext);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-family: akkuratreg, sans-serif;
+            color: var(--darktext);
+        }
+    }
+
+    section {
+        grid-area: content;
+
+        @media (min-width: 800px) {
+            padding-top: 4rem;
+        }
+
+        article {
+            margin-bottom: 2rem;
+            p { margin-bottom: 0.4rem; }
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            .btn {
+                display: block;
+                padding: 1rem;
+                text-align: center;
+                border-radius: 8px;
+                font-family: akkuratreg, sans-serif;
+                font-weight: bold;
+
+                &.primary { background: var(--secondair); color: var(--lighttext); }
+                &.secondary { background: var(--main); color: var(--secondair); }
+                &.outline { 
+                    border: 1px solid var(--secondair); 
+                    &.danger { border-color: #d9534f; color: #d9534f; }
+                }
+            }
+
+            .admin {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+        }
+    }
+}

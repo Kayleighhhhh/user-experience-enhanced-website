@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if home %}
+    <link rel="stylesheet" href="/css/home.css">
+    {% elsif detail %}
+    <link rel="stylesheet" href="/css/detail.css">
+    {% elsif overzicht %}
+    <link rel="stylesheet" href="/css/overzicht.css">
+    {% elsif nieuw %}
+    <link rel="stylesheet" href="/css/nieuw.css">
+    {% elsif uitlenen%}
+    <link rel="stylesheet" href="/css/uit-in.css">
+    {% elsif aanpassen %}
+    <link rel="stylesheet" href="/css/aanpassen.css">
+    {% elsif schade %}
+    <link rel="stylesheet" href="/css/schade.css">
+    {% endif %}
+    
+    <link rel="stylesheet" href="/css/style.css">
+   
+    <script defer src="/script.js"></script>
+  </head>
+  <body>  
+    <header class="logo">
+      <a href="/">
+        <img src="/assets/image.svg" class="logopt1" alt="cool kunst en cultuur" width="600" height="400"></a>
+      <a href="/">
+        <h1 class="logopt2">PreludeFonds</h1></a>

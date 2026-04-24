@@ -1,0 +1,79 @@
+{% render 'partials/head.liquid', schade: true %}
+
+<div class="breadcrumbs">
+<a href="/instrumenten">Instrumenten </a>
+{% comment %} <p>" / "</p> {% endcomment %}
+ {% comment %} voor beste resultaat met een before in css de / plaatsen {% endcomment %}
+<a href="/instrumenten/{{ instrument.key }}">&nbsp; / {{ instrument.key }}</a>
+<p>&nbsp / Schade</p>
+
+</div>
+</header>
+
+<section class="schade-beheer">
+    <header>
+        <h2>Schade Melden</h2>
+    </header>
+    
+    <form class="schade-form" action="/instrumenten/{{ instrument.key }}/schade" method="POST">
+            <label class="schade-veld">
+                Datum schade
+                <input type="date" name="datum" required>
+            </label>
+            
+            <label class="schade-veld">
+                Omschrijving
+                <textarea name="omschrijving" placeholder="Wat is er gebeurd?" required></textarea>
+            </label>
+        </fieldset>
+
+        <figure class="schade-upload">
+            <figcaption class="schade-label">Foto van de schade</figcaption>
+            <label class="schade-dropzone">
+                <input type="file" id="schade-photo" name="photo" accept="image/*" hidden>
+                <span id="schade-upload-text">Klik om foto te uploaden</span>
+            </label>
+        </figure>
+
+        <footer class="schade-acties">
+            <button type="submit" class="schade-btn schade-btn--submit">Schade Opslaan</button>
+        </footer>
+    </form>
+
+ 
+
+    <form action="/instrumenten/{{ instrument.key }}/schade" method="POST" class="schade-status-update">
+        
+        <input type="hidden" name="id" value="{{ instrument.id }}">
+        <input type="hidden" name="key" value="{{ instrument.key }}">
+        <input type="hidden" name="status" value="status">
+        <p>Huidige status: <strong>{{ instrument.status }}</strong></p>
+        <button type="submit" id="status" class="schade-btn schade-btn--repair">
+            {% if melding == 'success' %}✅ De status is aangepast!
+            {% elsif melding == 'error' %}❌ Er ging iets mis!
+            {% else %}Zet op 'In Reparatie'
+            {% endif %}
+        </button>
+    </form>
+
+
+
+    <section class="schade-historie">
+        <h3>Eerdere meldingen</h3>
+        <ul class="schade-lijst">
+            {% for melding in meldingen %}
+            <li class="schade-item">
+                <time datetime="{{ melding.datum }}">{{ melding.datum }}</time>
+                <p>{{ melding.omschrijving }}</p>
+                {% if melding.foto %}
+                    <img src="{{ melding.foto }}" alt="Schadedetail" class="schade-mini-img">
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</section>
+
+
+
+{% render 'partials/foot.liquid' %}

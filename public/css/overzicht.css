@@ -1,0 +1,192 @@
+.ins-container {
+    max-width: 60rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+
+    /* Filter & Action Bar */
+    .ins-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+        align-items: flex-start;
+
+        @media (min-width: 28rem) {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    /* Form and Select styling */
+    .filter-form {
+        display: contents; /* Keeps the select inside the flex flow */
+    }
+
+    /* Unified Button & Select Styles */
+    .ins-btn {
+        background: var(--main);
+        color: var(--secondair);
+        border: 1px solid var(--secondair);
+        padding: 0.7rem 1.5rem;
+        border-radius: 2rem;
+        font-family: akkuratreg, sans-serif;
+        cursor: pointer;
+        font-size: 1rem;
+        text-align: center;
+        transition: transform 0.1s ease, filter 0.2s ease;
+
+        &:hover {
+            filter: brightness(1.05);
+            transform: translateY(-1px);
+        }
+    }
+
+    /* Toggle Switch */
+    .ins-switch {
+        position: relative;
+        width: 3.5rem;
+        height: 1.8rem;
+        flex-shrink: 0;
+
+        @media (min-width: 48rem) {
+            margin-left: auto;
+        }
+
+        input { opacity: 0; width: 0; height: 0; }
+        
+        .ins-slider {
+            position: absolute;
+            inset: 0;
+            background: var(--tabelfirstcolor);
+            border: 1px solid var(--secondair);
+            border-radius: 2rem;
+            cursor: pointer;
+
+            &:before {
+                position: absolute;
+                content: "";
+                height: 1.2rem;
+                width: 1.2rem;
+                left: 0.3rem;
+                top: 0.2rem;
+                background: var(--secondair);
+                border-radius: 50%;
+                transition: 0.3s;
+            }
+        }
+
+        input:checked + .ins-slider:before {
+            transform: translateX(1.7rem);
+        }
+    }
+
+    /* The Table with Glassmorphism */
+    .ins-list {
+        width: 100%;
+        border-collapse: separate; 
+        border-spacing: 0;
+        background: var(--tabelfirstcolor);
+        backdrop-filter: blur(12px);
+        border: var(--secondair) solid 1px;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(40, 9, 64, 0.15); /* Soft deep purple shadow */
+
+        .ins-list-head {
+            display: none; 
+
+            @media (min-width: 48rem) {
+                display: table-header-group;
+                background: var(--main);
+            }
+        }
+
+        /* Your specific header style */
+        .ins-title {
+            @media (min-width: 48rem) {
+                color: var(--secondair);
+                padding: 1.2rem 1.3rem;
+                text-align: left;
+                font-size: 1.1rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                font-family: akkuratreg, sans-serif;
+            }
+        }
+
+        .ins-row {
+            display: block; 
+            border-bottom: 1px solid var(--secondair);
+            padding: 1.2rem;
+
+            /* Zebra striping for Mobile */
+            &:nth-child(even) {
+                background: var(--tabelsecondcolor);
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            @media (min-width: 48rem) {
+                display: table-row;
+                padding: 0;
+                transition: background 0.2s ease;
+            }
+        }
+
+        .ins-cell {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+
+            &::before {
+                content: attr(data-label);
+                font-family: akkuratreg;
+                font-weight: bold;
+                color: var(--secondair);
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                @media (min-width: 48rem) { display: none; }
+            }
+
+            @media (min-width: 48rem) {
+                display: table-cell;
+                padding: 1.2rem 1.3rem;
+                border-bottom: 1px solid var(--secondair);
+            }
+        }
+
+        .ins-name {
+            margin: 0;
+            font-size: 1.15rem;
+            color: var(--secondair);
+            font-family: akkuratreg, sans-serif;
+        }
+
+        .ins-status-text {
+            margin: 0;
+            /* font-family: feijoa, sans-serif; */
+            color: var(--secondair);
+        }
+
+        /* Action Button */
+        .ins-details-link {
+            display: inline-block;
+            background: var(--secondair);
+            color: var(--lighttext);
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.8rem;
+            font-size: 0.9rem;
+            font-family: akkuratreg, sans-serif;
+            text-decoration: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+
+            &:hover {
+                opacity: 0.9;
+                transform: scale(1.03);
+            }
+        }
+    }
+}

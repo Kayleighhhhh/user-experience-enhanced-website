@@ -1,0 +1,181 @@
+.schade-beheer {
+    max-width: 62.5rem;
+    margin: 2rem auto;
+    padding: 1.25rem;
+    font-family: akkuratreg, sans-serif;
+    display: grid;
+    gap: 1em;
+
+    h2, h3 {
+        color: var(--secondair);
+        margin-bottom: 1.5rem;
+    }
+
+    .schade-divider {
+        border: 0;
+        border-top: 0.1rem solid var(--tabelfirstcolor);
+        margin: 2.5rem 0;
+    }
+
+    /* Het formulier */
+    .schade-form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding-bottom: 1rem;
+
+        .schade-inputs {
+            border: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .schade-veld {
+            display: flex;
+            flex-direction: column;
+            color: var(--secondair);
+            font-weight: bold;
+            gap: 0.5rem;
+
+            input[type="date"], textarea {
+                background-color: var(--tabelsecondcolor);
+                border: none;
+                border-radius: 1rem;
+                padding: 0.75rem 1rem;
+                font-family: inherit;
+                outline: none;
+                color: var(--darktext);
+            }
+
+            textarea {
+                min-height: 8rem;
+                resize: vertical;
+
+                &::placeholder {
+                    color: var(--darktext);
+                }
+            }
+        }
+
+        /* De foto uploadsectie */
+        .schade-upload {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+
+            .schade-label {
+                color: var(--secondair);
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+            }
+
+            .schade-dropzone {
+                flex: 1;
+                min-height: 12rem;
+                background-color: var(--tabelsecondcolor);
+                border-radius: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                overflow: hidden;
+                border: 0.125rem dashed transparent;
+                transition: border-color 0.2s ease;
+                color: var(--darktext);
+
+                &:hover {
+                    border-color: var(--main);
+                }
+
+                #schade-preview {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    /* Knoppen & Acties */
+    .schade-acties {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .schade-status-update {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        background: var(--tabelsecondcolor);
+        border-radius: 1rem;
+
+        @media (min-width: 48rem) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .schade-btn {
+        padding: 0.8rem 2rem;
+        border-radius: 0.8rem;
+        border: none;
+        font-size: 1.1rem;
+        cursor: pointer;
+        font-family: inherit;
+        transition: transform 0.1s;
+        background-color: var(--main);
+        color: var(--darktext);
+
+        &:active { transform: scale(0.98); }
+
+        &--submit {
+            background-color: var(--secondair);
+            color: var(--lighttext);
+        }
+
+        &--repair {
+            background-color: #d9534f;
+            color: white;
+        }
+    }
+
+    /* De lijst onderaan */
+    .schade-lijst {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0;
+
+        .schade-item {
+            list-style: none;
+            background: white;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            border: 0.1rem solid var(--tabelfirstcolor);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+
+            @media (min-width: 48rem) {
+                grid-template-columns: 7rem 1fr 8rem;
+                align-items: center;
+            }
+
+            time {
+                font-weight: bold;
+                color: var(--secondair);
+            }
+
+            .schade-mini-img {
+                width: 100%;
+                height: 4rem;
+                object-fit: cover;
+                border-radius: 0.5rem;
+            }
+        }
+    }
+}

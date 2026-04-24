@@ -1,0 +1,245 @@
+{% render 'partials/head.liquid', overzicht: true %}
+</header>
+
+<section class="ins-container">
+  <nav class="ins-controls">
+    <form action="/instrumenten" method="GET" class="filter-form">
+
+        <label class="filters">
+          {% comment %} Instrument {% endcomment %}
+          <select name="instrument" onchange="this.form.submit()" class="ins-btn">
+            <option
+              value=""
+              {% if not soort %}
+                selected
+              {% endif %}
+            >
+              Alle instrumenten
+            </option>
+            <option
+              value="Gitaar akoestisch"
+              {% if soort == 'Gitaar akoestisch' %}
+                selected
+              {% endif %}
+            >
+              Gitaar
+            </option>
+            <option
+              value="Gitaar driekwart"
+              {% if soort == 'Gitaar driekwart' %}
+                selected
+              {% endif %}
+            >
+              Gitaar 3/4
+            </option>
+            <option
+              value="Basgitaar"
+              {% if soort == 'Basgitaar' %}
+                selected
+              {% endif %}
+            >
+              Basgitaar
+            </option>
+            <option
+              value="Elektrische gitaar"
+              {% if soort == 'Elektrische gitaar' %}
+                selected
+              {% endif %}
+            >
+              Elektrische gitaar
+            </option>
+            <option
+              value="Cello"
+              {% if soort == 'Cello' %}
+                selected
+              {% endif %}
+            >
+              Cello
+            </option>
+            <option
+              value="Viool"
+              {% if soort == 'Viool' %}
+                selected
+              {% endif %}
+            >
+              Viool
+            </option>
+            <option
+              value="Ukelele"
+              {% if soort == 'Ukelele' %}
+                selected
+              {% endif %}
+            >
+              Ukelele
+            </option>
+            <option
+              value="Keyboard"
+              {% if soort == 'Keyboard' %}
+                selected
+              {% endif %}
+            >
+              Keyboard
+            </option>
+            <option
+              value="Blokfluit"
+              {% if soort == 'Blokfluit' %}
+                selected
+              {% endif %}
+            >
+              Blokfluit
+            </option>
+            <option
+              value="Dwarsfluit"
+              {% if soort == 'Dwarsfluit' %}
+                selected
+              {% endif %}
+            >
+              Dwarsfluit
+            </option>
+            <option
+              value="Darbukha"
+              {% if soort == 'Darbukha' %}
+                selected
+              {% endif %}
+            >
+              Darbukha
+            </option>
+            <option
+              value="Hoorn"
+              {% if soort == 'Hoorn' %}
+                selected
+              {% endif %}
+            >
+              Hoorn
+            </option>
+            <option
+              value="Altsaxofoon"
+              {% if soort == 'Altsaxofoon' %}
+                selected
+              {% endif %}
+            >
+              Altsaxofoon
+            </option>
+            <option
+              value="Tenorsaxofoon"
+              {% if soort == 'Tenorsaxofoon' %}
+                selected
+              {% endif %}
+            >
+              Tenorsaxofoon
+            </option>
+            <option
+              value="Baritonsaxofoon"
+              {% if soort == 'Baritonsaxofoon' %}
+                selected
+              {% endif %}
+            >
+              Baritonsaxofoon
+            </option>
+            <option
+              value="Trompet"
+              {% if soort == 'Trompet' %}
+                selected
+              {% endif %}
+            >
+              Trompet
+            </option>
+            <option
+              value="Trombone"
+              {% if soort == 'Trombone' %}
+                selected
+              {% endif %}
+            >
+              Trombone
+            </option>
+            <option
+              value="Cajon"
+              {% if soort == 'Cajon' %}
+                selected
+              {% endif %}
+            >
+              Cajon
+            </option>
+            <option
+              value="Hobo"
+              {% if soort == 'Hobo' %}
+                selected
+              {% endif %}
+            >
+              Hobo
+            </option>
+            <option
+              value="Accordeon"
+              {% if soort == 'Accordeon' %}
+                selected
+              {% endif %}
+            >
+              Accordeon
+            </option>
+            <option
+              value="Bugel"
+              {% if soort == 'Bugel' %}
+                selected
+              {% endif %}
+            >
+              Bugel
+            </option>
+            <option
+              value="Harp"
+              {% if soort == 'Harp' %}
+                selected
+              {% endif %}
+            >
+              Harp
+            </option>
+            <option
+              value="Klarinet"
+              {% if soort == 'Klarinet' %}
+                selected
+              {% endif %}
+            >
+              Klarinet
+            </option>
+          </select>
+        </label>
+    </form>
+
+    <a href="/instrumenten/nieuw" class="ins-btn">Nieuw instrument</a>
+
+    {% comment %} <label class="ins-switch">
+      <input type="checkbox" checked>
+      <span class="ins-slider"></span>
+    </label> {% endcomment %}
+  </nav>
+
+  <table class="ins-list">
+  <thead class="ins-list-head">
+    <tr>
+      <th class="ins-title">Instrumenten</th>
+      <th class="ins-title">Status</th>
+      <th class="ins-title">Actie</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for instrument in instrumenten %}
+      <tr class="ins-row">
+        <td class="ins-cell" data-label="Instrument">
+          <h3 class="ins-name">{{ instrument.name }}</h3>
+        </td>
+
+        <td class="ins-cell" data-label="Status">
+          <p class="ins-status-text">{{ instrument.status | default:"Onbekend" }}</p>
+        </td>
+
+        <td class="ins-cell" data-label="Details">
+          <a href="/instrumenten/{{ instrument.key }}" class="ins-details-link">
+            Bekijk details
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</section>
+
+{% render 'partials/foot.liquid' %}

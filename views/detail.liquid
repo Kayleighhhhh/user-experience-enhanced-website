@@ -1,0 +1,49 @@
+{% render 'partials/head.liquid', detail: true %}
+
+
+<div class="breadcrumbs">
+<a href="/instrumenten">Instrumenten </a>
+{% comment %} <p>" / "</p> {% endcomment %}
+ {% comment %} voor beste resultaat met een before in css de / plaatsen {% endcomment %}
+<p>&nbsp; / {{ instrument.key }}</p>
+
+</div>
+
+</header>
+
+<main class="instrument-detail">
+    <header>
+        <h1>{{ instrument.name }}</h1>
+        <h2>{{ instrument.instrument }}</h2>
+    </header>
+
+    <figure>
+        <img src="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?width=600&height=600&fit=cover&format=webp&quality=25" alt="{{ instrument.name }}" fetchpriority="high" width="{{ photo.width }}" height="{{ photo.height }}" type="image/webp">
+        {% comment %} <img src="/assets/DSC_0473.jpg" alt="{{ instrument.name }}"> {% endcomment %}
+        <span class="status">{{ instrument.status | default:"Onbekend"}}</span>
+    </figure>
+
+    <section>
+        <article>
+            {% comment %} {% if instrument.brand %}<p><strong>Merk:</strong> {{ instrument.brand }}</p>{% endif %}
+            {% if instrument.serial_number %}<p><strong>Serie nummer:</strong> {{ instrument.serial_number }}</p>{% endif %}
+            {% if instrument.storage %}<p><strong>Berplaats:</strong> {{ instrument.storage }}</p>{% endif %} {% endcomment %}
+            <p><strong>Merk:</strong> {{ instrument.brand }}</p>
+            <p><strong>Serie nummer:</strong> {{ instrument.serial_number }}</p>
+            <p><strong>Berplaats:</strong> Instrumentenhok tweede verdieping</p>
+        </article>
+
+        <nav>
+            
+            <a href="/instrumenten/{{ instrument.key }}/uitlenen" class="btn primary">Uitlenen</a>
+            <a href="/instrumenten/{{ instrument.key }}/innemen" class="btn secondary">Innemen</a>
+            
+            <div class="admin">
+                <a href="/instrumenten/{{ instrument.key }}/aanpassen" class="btn outline">Aanpassen</a>
+                <a href="/instrumenten/{{ instrument.key }}/schade" class="btn outline danger">Schade</a>
+            </div>
+        </nav>
+    </section>
+</main>
+
+{% render 'partials/foot.liquid' %}

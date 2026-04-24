@@ -1,0 +1,59 @@
+{% render 'partials/head.liquid', nieuw: true %}
+</header>
+
+<section class="nieuw-instrument">
+    <header class="voeg-toe-header">
+        <h1>Nieuw Instrument Registreren</h1>
+        <p>Vul de onderstaande gegevens in om een nieuw exemplaar aan de collectie toe te voegen.</p>
+    </header>
+
+    <form class="voeg-toe-form" action="/instrumenten/nieuw" method="POST">
+        <fieldset class="instrument-details">
+            <label class="input-groep">
+                Naam 
+                <input type="text" name="name" placeholder="bijv. Trompet 01" required>
+            </label>
+
+            <label class="input-groep">
+                Instrument
+                <input type="text" name="instrument" placeholder="bijv. Trompet" required>
+            </label>
+
+            <label class="input-groep">
+                Merk
+                <input type="text" name="brand" placeholder="bijv. Yamaha">
+            </label>
+
+            <label class="input-groep">
+                Serienummer
+                <input type="text" name="serial_number" placeholder="S/N 123456">
+            </label>
+
+            <label class="input-groep">
+                Bergplaats
+                <input type="text" name="storage_room" placeholder="Kast A, Plank 2">
+            </label>
+
+            <label class="input-groep">
+                Eigendom van
+                <input type="text" name="property" placeholder="Cool / Preludefonds ect..">
+            </label>
+        </fieldset>
+
+        <figure class="instrument-media">
+            <figcaption class="media-label">Productfoto</figcaption>
+            <label class="media-dropzone">
+                <input type="file" id="new-photo" name="photo" accept="image/*" hidden>
+                <img id="new-preview" src="#" alt="Preview" style="display: none;">
+                <span id="new-upload-text">Klik om foto te selecteren</span>
+            </label>
+        </figure>
+
+        <footer class="form-acties">
+            <a href="/instrumenten" class="btn-basis btn-basis--secundair">Annuleren</a>
+            <button type="submit" class="btn-basis btn-basis--main">Instrument Opslaan</button>
+        </footer>
+    </form>
+</section>
+
+{% render 'partials/foot.liquid' %}

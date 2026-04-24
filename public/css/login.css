@@ -1,0 +1,77 @@
+.log-pg {
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    margin: 0 auto;
+    min-height: 80dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .log-head {
+        text-align: center;
+        margin-bottom: 2rem;
+        
+        .back { 
+            color: var(--secondair); 
+            font-weight: bold; 
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 2.2rem; }
+        p { margin-top: 0.5rem; font-family: akkuratreg, sans-serif; }
+    }
+
+    .log-form {
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(12px);
+        padding: 2rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        box-shadow: 0 10px 30px rgba(40, 9, 64, 0.1);
+
+        .veld {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            label { 
+                font-family: akkuratreg, sans-serif; 
+                font-weight: bold; 
+                font-size: 0.85rem;
+                color: var(--secondair);
+            }
+
+            input {
+                padding: 1rem;
+                border: 1.5px solid var(--main);
+                border-radius: 10px;
+                font-size: 1.1rem;
+                background: white;
+                
+                &:focus {
+                    outline: none;
+                    border-color: var(--secondair);
+                }
+            }
+        }
+
+        .btn-log {
+            background: var(--secondair);
+            color: var(--lighttext);
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-family: akkuratreg, sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+
+            &:active { transform: scale(0.98); }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{% render 'partials/head.liquid', aanpassen: true %}
+
+<div class="breadcrumbs">
+<a href="/instrumenten">Instrumenten </a>
+{% comment %} <p>" / "</p> {% endcomment %}
+ {% comment %} voor beste resultaat met een before in css de / plaatsen {% endcomment %}
+<a href="/instrumenten/{{ instrument.key }}">&nbsp; / {{ instrument.key }}</a>
+<p>&nbsp / Aanpassen</p>
+
+</div>
+</header>
+
+<form class="aanpassen-form" action="/instrumenten/{{ instrument.key }}/aanpassen" method="POST">
+        
+    <label for="name" class="aan-veld">Naam: 
+        <input type="text" id="name" name="instrumentName" placeholder="{{ instrument.name }}" readonly>
+    </label>
+
+    <label for="instrument" class="aan-veld">Instrument: 
+        <input type="text" id="instrument" name="instrument" placeholder="{{ instrument.instrument }}" >
+    </label>
+
+    <label for="merk" class="aan-veld">Merk: 
+        <input type="text" id="merk" name="merk" placeholder="{{ instrument.brand }}" >
+    </label>
+
+    <label for="type" class="aan-veld">Type: 
+        <input type="text" id="type" name="type" placeholder="{{ instrument.type }}" >
+    </label>
+
+    <label for="sernum" class="aan-veld">Serie nummer: 
+        <input type="text" id="sernum" name="sernum" placeholder="{{ instrument.serial_number }}" >
+    </label>
+
+    <label for="bergplaats" class="aan-veld">Bergplaats: 
+        <input type="text" id="bergplaats" name="bergplaats" placeholder="{{ instrument.storage_room }}" >
+    </label>
+
+    <label for="eigendom" class="aan-veld">Eigendom van: 
+        <input type="text" id="eigendom" name="eigendom" placeholder="{{ instrument.property }}" >
+    </label>
+
+    <div class="foto-sectie">
+        <label for="photo" class="aan-veld-label">Foto
+            <div class="upload-box">
+                <input type="file" id="photo" name="photo" accept="image/*" hidden>
+                <span id="upload-text">Upload foto</span>
+            </div>
+        </label>
+    </div>
+
+    <div class="btn-container">
+        <a class="btn-aan btn-light" href="/instrumenten/{{ instrument.key }}">Annuleren</a>
+        <button type="submit" class="btn-aan btn-dark">Versturen</button>
+    </div>
+        
+    <input type="hidden" name="id" value="{{ instrument.id }}">
+    <input type="hidden" name="key" value="{{ instrument.key }}">
+
+</form>
+
+
+{% render 'partials/foot.liquid' %}

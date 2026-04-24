@@ -1,0 +1,38 @@
+{% render 'partials/head.liquid', uitlenen: true %}
+
+<div class="breadcrumbs">
+<a href="/instrumenten">Instrumenten </a>
+{% comment %} <p>" / "</p> {% endcomment %}
+ {% comment %} voor beste resultaat met een before in css de / plaatsen {% endcomment %}
+<a href="/instrumenten/{{ instrument.key }}">&nbsp; / {{ instrument.key }}</a>
+<p>&nbsp / Uitlenen</p>
+
+</div>
+</header>
+
+<main class="uit-pg">
+    <header class="uit-head">
+        <h1>Uitlenen</h1>
+        <h2>{{ instrument.name }}</h2>
+    </header>
+
+    <form class="uit-form" action="/instrumenten/{{ instrument.key }}/uitlenen" method="POST">
+        <img class="uit-img" src="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}" alt="{{ instrument.name }}">
+        {% comment %} <img src="assets/DSC_0473.jpg" alt="" class="uit-img"> {% endcomment %}
+
+        <label for="name" class="veld">Wie leent het?
+        <input type="text" id="name" name="studentName" placeholder="Volledige naam" required></label>
+        
+        <input type="hidden" name="id" value="{{ instrument.id }}">
+        <input type="hidden" name="key" value="{{ instrument.key }}">
+
+        <button type="submit" class="btn-uit">
+            {% if melding == 'success' %}✅ De status is aangepast!
+            {% elsif melding == 'error' %}❌ Er ging iets mis!
+            {% else %}Bevestig uitlening
+            {% endif %}
+        </button>
+    </form>
+</main>
+
+{% render 'partials/foot.liquid' %}

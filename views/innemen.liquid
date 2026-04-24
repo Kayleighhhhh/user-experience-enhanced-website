@@ -1,0 +1,45 @@
+{% render 'partials/head.liquid', uitlenen: true %}
+
+<div class="breadcrumbs">
+<a href="/instrumenten">Instrumenten </a>
+{% comment %} <p>" / "</p> {% endcomment %}
+ {% comment %} voor beste resultaat met een before in css de / plaatsen {% endcomment %}
+<a href="/instrumenten/{{ instrument.key }}">&nbsp; / {{ instrument.key }}</a>
+<p>&nbsp / Innemen</p>
+
+</div>
+</header>
+
+<main class="in-pg">
+    <header class="in-head">
+        <h1>Innemen</h1>
+        <h2>{{ instrument.name }}</h2>
+    </header>
+
+    <form class="in-form" action="/instrumenten/{{ instrument.key }}/innemen" method="POST">
+        <div class="veld">
+            <label for="staat"><p>Staat bij inname</p></label>
+            <select id="staat" name="staat">
+                <option value="goed">In orde</option>
+                <option value="schade">Nieuwe schade</option>
+            </select>
+        </div>
+
+        <div class="veld">
+            <label for="opm"><p>Opmerkingen</p></label>
+            <textarea id="opm" name="opm" rows="3"></textarea>
+        </div>
+
+        <input type="hidden" name="id" value="{{ instrument.id }}">
+        <input type="hidden" name="key" value="{{ instrument.key }}">
+        
+        <button type="submit" class="btn-in">
+            {% if melding == 'success' %}✅ De status is aangepast!
+            {% elsif melding == 'error' %}❌ Er ging iets mis!
+            {% else %}Inname voltooien
+            {% endif %}
+        </button>
+    </form>
+</main>
+
+{% render 'partials/foot.liquid' %}
