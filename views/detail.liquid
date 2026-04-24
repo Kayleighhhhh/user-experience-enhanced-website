@@ -17,11 +17,12 @@
         <h2>{{ instrument.instrument }}</h2>
     </header>
 
-    <figure>
-        <img src="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?width=600&height=600&fit=cover&format=webp&quality=25" alt="{{ instrument.name }}" fetchpriority="high" width="{{ photo.width }}" height="{{ photo.height }}" type="image/webp">
-        {% comment %} <img src="/assets/DSC_0473.jpg" alt="{{ instrument.name }}"> {% endcomment %}
+    <picture>
+        <source srcset="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=avif&quality=25" type="image/avif">
+        <source srcset="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=webp&quality=25" type="image/webp">
+        <img src="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=jpg&quality=25" alt="{{ instrument.name }}" fetchpriority="high" width="456" height="320">
         <span class="status">{{ instrument.status | default:"Onbekend"}}</span>
-    </figure>
+    </picture>
 
     <section>
         <article>
