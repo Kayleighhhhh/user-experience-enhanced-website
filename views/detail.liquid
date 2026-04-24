@@ -35,10 +35,11 @@
         </article>
 
         <nav>
-            
-            <a href="/instrumenten/{{ instrument.key }}/uitlenen" class="btn primary">Uitlenen</a>
-            <a href="/instrumenten/{{ instrument.key }}/innemen" class="btn secondary">Innemen</a>
-            
+            {% if instrument.status == "Beschikbaar" %}
+                <a href="/instrumenten/{{ instrument.key }}/uitlenen" class="btn primary">Uitlenen</a>
+            {% else %}
+                <a href="/instrumenten/{{ instrument.key }}/innemen" class="btn secondary">Innemen</a>
+            {% endif %}
             <div class="admin">
                 <a href="/instrumenten/{{ instrument.key }}/aanpassen" class="btn outline">Aanpassen</a>
                 <a href="/instrumenten/{{ instrument.key }}/schade" class="btn outline danger">Schade</a>
