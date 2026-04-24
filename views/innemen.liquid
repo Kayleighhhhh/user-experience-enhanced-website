@@ -42,4 +42,37 @@
     </form>
 </main>
 
+<script type="module">
+
+    const inneemForm = document.querySelector(".in-form")
+    const inneemBtn = inneemForm.querySelector("button")
+
+    inneemForm.addEventListener("submit", async function(event) {
+
+        event.preventDefault()
+
+        inneemBtn.classList.add("loading")
+        inneemBtn.textContent = "laden..."
+
+        let formData = new FormData(inneemForm);
+
+        const response = await fetch(inneemForm.action, {
+            method: inneemForm.method,
+            body: new URLSearchParams(formData)
+        })
+
+        const responseData = await response.text()
+
+        const parser = new DOMParser()
+        const responseDOM = parser.parseFromString(responseData, 'text/html')
+
+        // const newState = responseDOM.querySelector
+
+        console.log("Loading state weghalen")
+        inneemBtn.classList.remove("loading")
+        inneemBtn.textContent = "✅ De status is aangepast!"
+    })
+
+</script>
+
 {% render 'partials/foot.liquid' %}
