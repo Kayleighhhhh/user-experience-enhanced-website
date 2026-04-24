@@ -35,4 +35,36 @@
     </form>
 </main>
 
+<script type="module">
+
+    const uitleenForm = document.querySelector(".uit-form")
+    const uitleenBtn = uitleenForm.querySelector("button")
+
+    uitleenForm.addEventListener("submit", async function(event) {
+
+        event.preventDefault()
+
+        uitleenBtn.classList.add("loading")
+        uitleenBtn.textContent = "laden..."
+
+        let formData = new FormData(uitleenForm);
+
+        const response = await fetch(uitleenForm.action, {
+            method: uitleenForm.method,
+            body: new URLSearchParams(formData)
+        })
+
+        const responseData = await response.text()
+
+        const parser = new DOMParser()
+        const responseDOM = parser.parseFromString(responseData, 'text/html')
+
+        // const newState = responseDOM.querySelector
+
+        console.log("Loading state weghalen")
+        uitleenBtn.classList.remove("loading")
+        uitleenBtn.textContent = "✅ De status is aangepast!"
+    })
+</script>
+
 {% render 'partials/foot.liquid' %}
