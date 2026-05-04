@@ -2,223 +2,135 @@
 </header>
 
 <section class="ins-container">
-  <nav class="ins-controls">
-    <form action="/instrumenten" method="GET" class="filter-form">
+<nav class="ins-controls">
+  
+  <form action="/instrumenten" method="GET" class="filter-form desktop-only-form">
+    <details class="desktop-menu">
+      <summary class="ins-btn">
+        <span>{% if soort %}{{ soort }}{% else %}Filters{% endif %}</span>
+      </summary>
 
-        <label class="filters">
-          {% comment %} Instrument {% endcomment %}
-          <select name="instrument" onchange="this.form.submit()" class="ins-btn">
-            <option
-              value=""
-              {% if not soort %}
-                selected
-              {% endif %}
-            >
-              Alle instrumenten
-            </option>
-            <option
-              value="Gitaar akoestisch"
-              {% if soort == 'Gitaar akoestisch' %}
-                selected
-              {% endif %}
-            >
-              Gitaar
-            </option>
-            <option
-              value="Gitaar driekwart"
-              {% if soort == 'Gitaar driekwart' %}
-                selected
-              {% endif %}
-            >
-              Gitaar 3/4
-            </option>
-            <option
-              value="Basgitaar"
-              {% if soort == 'Basgitaar' %}
-                selected
-              {% endif %}
-            >
-              Basgitaar
-            </option>
-            <option
-              value="Elektrische gitaar"
-              {% if soort == 'Elektrische gitaar' %}
-                selected
-              {% endif %}
-            >
-              Elektrische gitaar
-            </option>
-            <option
-              value="Cello"
-              {% if soort == 'Cello' %}
-                selected
-              {% endif %}
-            >
-              Cello
-            </option>
-            <option
-              value="Viool"
-              {% if soort == 'Viool' %}
-                selected
-              {% endif %}
-            >
-              Viool
-            </option>
-            <option
-              value="Ukelele"
-              {% if soort == 'Ukelele' %}
-                selected
-              {% endif %}
-            >
-              Ukelele
-            </option>
-            <option
-              value="Keyboard"
-              {% if soort == 'Keyboard' %}
-                selected
-              {% endif %}
-            >
-              Keyboard
-            </option>
-            <option
-              value="Blokfluit"
-              {% if soort == 'Blokfluit' %}
-                selected
-              {% endif %}
-            >
-              Blokfluit
-            </option>
-            <option
-              value="Dwarsfluit"
-              {% if soort == 'Dwarsfluit' %}
-                selected
-              {% endif %}
-            >
-              Dwarsfluit
-            </option>
-            <option
-              value="Darbukha"
-              {% if soort == 'Darbukha' %}
-                selected
-              {% endif %}
-            >
-              Darbukha
-            </option>
-            <option
-              value="Hoorn"
-              {% if soort == 'Hoorn' %}
-                selected
-              {% endif %}
-            >
-              Hoorn
-            </option>
-            <option
-              value="Altsaxofoon"
-              {% if soort == 'Altsaxofoon' %}
-                selected
-              {% endif %}
-            >
-              Altsaxofoon
-            </option>
-            <option
-              value="Tenorsaxofoon"
-              {% if soort == 'Tenorsaxofoon' %}
-                selected
-              {% endif %}
-            >
-              Tenorsaxofoon
-            </option>
-            <option
-              value="Baritonsaxofoon"
-              {% if soort == 'Baritonsaxofoon' %}
-                selected
-              {% endif %}
-            >
-              Baritonsaxofoon
-            </option>
-            <option
-              value="Trompet"
-              {% if soort == 'Trompet' %}
-                selected
-              {% endif %}
-            >
-              Trompet
-            </option>
-            <option
-              value="Trombone"
-              {% if soort == 'Trombone' %}
-                selected
-              {% endif %}
-            >
-              Trombone
-            </option>
-            <option
-              value="Cajon"
-              {% if soort == 'Cajon' %}
-                selected
-              {% endif %}
-            >
-              Cajon
-            </option>
-            <option
-              value="Hobo"
-              {% if soort == 'Hobo' %}
-                selected
-              {% endif %}
-            >
-              Hobo
-            </option>
-            <option
-              value="Accordeon"
-              {% if soort == 'Accordeon' %}
-                selected
-              {% endif %}
-            >
-              Accordeon
-            </option>
-            <option
-              value="Bugel"
-              {% if soort == 'Bugel' %}
-                selected
-              {% endif %}
-            >
-              Bugel
-            </option>
-            <option
-              value="Harp"
-              {% if soort == 'Harp' %}
-                selected
-              {% endif %}
-            >
-              Harp
-            </option>
-            <option
-              value="Klarinet"
-              {% if soort == 'Klarinet' %}
-                selected
-              {% endif %}
-            >
-              Klarinet
-            </option>
-          </select>
-        </label>
-    </form>
+      <article class="mega-menu">
+        <button type="submit" name="instrument" value="" class="all-link" {% if not soort %}selected{% endif %}>
+          Alle instrumenten
+        </button>
+        
+        <div class="grid">
+          <!-- SNAAR -->
+          <section>
+            <h3>Snaar</h3>
+            <ul>
+              <li><button type="submit" name="instrument" value="Gitaar akoestisch">Gitaar</button></li>
+              <li><button type="submit" name="instrument" value="Gitaar driekwart">Gitaar 3/4</button></li>
+              <li><button type="submit" name="instrument" value="Basgitaar">Basgitaar</button></li>
+              <li><button type="submit" name="instrument" value="Elektrische gitaar">Elektrische gitaar</button></li>
+              <li><button type="submit" name="instrument" value="Cello">Cello</button></li>
+              <li><button type="submit" name="instrument" value="Viool">Viool</button></li>
+              <li><button type="submit" name="instrument" value="Ukelele">Ukelele</button></li>
+              <li><button type="submit" name="instrument" value="Harp">Harp</button></li>
+            </ul>
+          </section>
 
-    <a href="/instrumenten/nieuw" class="ins-btn">Nieuw instrument</a>
+          <!-- BLAAS -->
+          <section>
+            <h3>Blaas</h3>
+            <ul>
+              <li><button type="submit" name="instrument" value="Blokfluit">Blokfluit</button></li>
+              <li><button type="submit" name="instrument" value="Dwarsfluit">Dwarsfluit</button></li>
+              <li><button type="submit" name="instrument" value="Hoorn">Hoorn</button></li>
+              <li><button type="submit" name="instrument" value="Altsaxofoon">Altsaxofoon</button></li>
+              <li><button type="submit" name="instrument" value="Tenorsaxofoon">Tenorsaxofoon</button></li>
+              <li><button type="submit" name="instrument" value="Baritonsaxofoon">Baritonsaxofoon</button></li>
+              <li><button type="submit" name="instrument" value="Trompet">Trompet</button></li>
+              <li><button type="submit" name="instrument" value="Trombone">Trombone</button></li>
+              <li><button type="submit" name="instrument" value="Hobo">Hobo</button></li>
+              <li><button type="submit" name="instrument" value="Bugel">Bugel</button></li>
+              <li><button type="submit" name="instrument" value="Klarinet">Klarinet</button></li>
+            </ul>
+          </section>
 
-    {% comment %} <label class="ins-switch">
-      <input type="checkbox" checked>
-      <span class="ins-slider"></span>
-    </label> {% endcomment %}
-  </nav>
+          <!-- TOETS -->
+          <section>
+            <h3>Toets</h3>
+            <ul>
+              <li><button type="submit" name="instrument" value="Keyboard">Keyboard</button></li>
+            </ul>
+          </section>
+
+          <!-- SLAG -->
+          <section>
+            <h3>Slag</h3>
+            <ul>
+              <li><button type="submit" name="instrument" value="Darbukha">Darbukha</button></li>
+              <li><button type="submit" name="instrument" value="Cajon">Cajon</button></li>
+            </ul>
+          </section>
+
+          <!-- OVERIG -->
+          <section>
+            <h3>Overig</h3>
+            <ul>
+              <li><button type="submit" name="instrument" value="Accordeon">Accordeon</button></li>
+            </ul>
+          </section>
+        </div>
+      </article>
+    </details>
+  </form>
+
+  <form action="/instrumenten" method="GET" class="filter-form mobile-only-form">
+    <select name="instrument" onchange="this.form.submit()" class="mobile-btn">
+      <option value="" {% if not soort %}selected{% endif %}>Alle instrumenten</option>
+      
+      <optgroup label="Snaar">
+        <option value="Gitaar akoestisch" {% if soort == 'Gitaar akoestisch' %}selected{% endif %}>Gitaar</option>
+        <option value="Gitaar driekwart" {% if soort == 'Gitaar driekwart' %}selected{% endif %}>Gitaar 3/4</option>
+        <option value="Basgitaar" {% if soort == 'Basgitaar' %}selected{% endif %}>Basgitaar</option>
+        <option value="Elektrische gitaar" {% if soort == 'Elektrische gitaar' %}selected{% endif %}>Elektrische gitaar</option>
+        <option value="Cello" {% if soort == 'Cello' %}selected{% endif %}>Cello</option>
+        <option value="Viool" {% if soort == 'Viool' %}selected{% endif %}>Viool</option>
+        <option value="Ukelele" {% if soort == 'Ukelele' %}selected{% endif %}>Ukelele</option>
+        <option value="Harp" {% if soort == 'Harp' %}selected{% endif %}>Harp</option>
+      </optgroup>
+
+      <optgroup label="Blaas">
+        <option value="Blokfluit" {% if soort == 'Blokfluit' %}selected{% endif %}>Blokfluit</option>
+        <option value="Dwarsfluit" {% if soort == 'Dwarsfluit' %}selected{% endif %}>Dwarsfluit</option>
+        <option value="Hoorn" {% if soort == 'Hoorn' %}selected{% endif %}>Hoorn</option>
+        <option value="Altsaxofoon" {% if soort == 'Altsaxofoon' %}selected{% endif %}>Altsaxofoon</option>
+        <option value="Tenorsaxofoon" {% if soort == 'Tenorsaxofoon' %}selected{% endif %}>Tenorsaxofoon</option>
+        <option value="Baritonsaxofoon" {% if soort == 'Baritonsaxofoon' %}selected{% endif %}>Baritonsaxofoon</option>
+        <option value="Trompet" {% if soort == 'Trompet' %}selected{% endif %}>Trompet</option>
+        <option value="Trombone" {% if soort == 'Trombone' %}selected{% endif %}>Trombone</option>
+        <option value="Hobo" {% if soort == 'Hobo' %}selected{% endif %}>Hobo</option>
+        <option value="Bugel" {% if soort == 'Bugel' %}selected{% endif %}>Bugel</option>
+        <option value="Klarinet" {% if soort == 'Klarinet' %}selected{% endif %}>Klarinet</option>
+      </optgroup>
+
+      <optgroup label="Toets">
+        <option value="Keyboard" {% if soort == 'Keyboard' %}selected{% endif %}>Keyboard</option>
+      </optgroup>
+
+      <optgroup label="Slag">
+        <option value="Darbukha" {% if soort == 'Darbukha' %}selected{% endif %}>Darbukha</option>
+        <option value="Cajon" {% if soort == 'Cajon' %}selected{% endif %}>Cajon</option>
+      </optgroup>
+
+      <optgroup label="Overig">
+        <option value="Accordeon" {% if soort == 'Accordeon' %}selected{% endif %}>Accordeon</option>
+      </optgroup>
+    </select>
+  </form>
+</nav>
+       
 
  <table class="ins-list">
   <thead class="ins-list-head">
     <tr>
       <th class="ins-title">Instrumenten</th>
       <th class="ins-title">Status</th>
-      <th class="ins-title">Type</th> <!-- Nieuw -->
-      <th class="ins-title">Merk</th> <!-- Nieuw -->
+      <th class="ins-title">Type</th> 
+      <th class="ins-title">Merk</th> 
       <th class="ins-title">Actie</th>
     </tr>
   </thead>
