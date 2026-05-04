@@ -212,11 +212,13 @@
     </label> {% endcomment %}
   </nav>
 
-  <table class="ins-list">
+ <table class="ins-list">
   <thead class="ins-list-head">
     <tr>
       <th class="ins-title">Instrumenten</th>
       <th class="ins-title">Status</th>
+      <th class="ins-title">Type</th> <!-- Nieuw -->
+      <th class="ins-title">Merk</th> <!-- Nieuw -->
       <th class="ins-title">Actie</th>
     </tr>
   </thead>
@@ -229,6 +231,14 @@
 
         <td class="ins-cell" data-label="Status">
           <p class="ins-status-text">{{ instrument.status | default:"Onbekend" }}</p>
+        </td>
+
+        <td class="ins-cell" data-label="Type">
+          <p class="ins-status-text">{{ instrument.type | default:"Onbekend" }}</p>
+        </td>
+
+        <td class="ins-cell" data-label="Merk">
+          <p class="ins-status-text">{{ instrument.brand | default:"Onbekend" }}</p>
         </td>
 
         <td class="ins-cell" data-label="Details">
