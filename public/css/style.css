@@ -6,7 +6,7 @@
     --darktext: #280940;
     --lighttext: #fff;
 
-    @media (prefers-color-scheme: dark) {
+    /* @media (prefers-color-scheme: dark) {
 
         --main: #1f0339;
         --secondair: #c49bce;
@@ -15,7 +15,7 @@
         --darktext: #fff;
         --lighttext: #280940;
 
-    }
+    } */
 }
 
 /* @font-face {
