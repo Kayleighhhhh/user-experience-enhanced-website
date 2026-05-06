@@ -78,7 +78,7 @@
 
   <form action="/instrumenten" method="GET" class="filter-form mobile-only-form">
     <select name="instrument" onchange="this.form.submit()" class="mobile-btn">
-      <option value="" {% if not soort %}selected{% endif %}>Alle instrumenten</option>
+      <option class="all-option" value="" {% if not soort %}selected{% endif %}>Alle instrumenten</option>
       
       <optgroup label="Snaar">
         <option value="Gitaar akoestisch" {% if soort == 'Gitaar akoestisch' %}selected{% endif %}>Gitaar</option>
