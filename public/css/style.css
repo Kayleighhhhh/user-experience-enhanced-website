@@ -167,4 +167,11 @@ option:checked::checkmark {
     grid-column: 1 / -1;
     grid-row: 2;
     padding: 0 .5em 0 .5em;
+    transition: 0.5s;
+
+    a:hover {
+        transform: scale(1.1);
+        color: var(--main);
+        text-decoration: underline;
+    }
 }
