@@ -7,13 +7,15 @@
   <form action="/instrumenten" method="GET" class="filter-form desktop-only-form">
     <details class="desktop-menu">
       <summary class="ins-btn">
-        <span>{% if soort %}{{ soort }}{% else %}Filters{% endif %}</span>
+        <span>{% if soort == '' %}Filters{% elsif not soort %}Filters{% else %}{{ soort }}{% endif %}</span>
       </summary>
 
       <article class="mega-menu">
-        <button type="submit" name="instrument" value="" class="all-link" {% if not soort %}selected{% endif %}>
+        <button type="submit" name="instrument" value="" class="all-link">
           Alle instrumenten
         </button>
+
+        
         
         <div class="grid">
          
