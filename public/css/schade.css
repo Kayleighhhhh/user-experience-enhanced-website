@@ -6,7 +6,8 @@
     display: grid;
     gap: 1em;
 
-    h2, h3 {
+    h2,
+    h3 {
         color: var(--secondair);
         margin-bottom: 1.5rem;
     }
@@ -38,7 +39,8 @@
             font-weight: bold;
             gap: 0.5rem;
 
-            input[type="date"], textarea {
+            input[type="date"],
+            textarea {
                 background-color: var(--tabelsecondcolor);
                 border: none;
                 border-radius: 1rem;
@@ -128,9 +130,11 @@
         font-family: inherit;
         transition: transform 0.1s;
         background-color: var(--main);
-        color: var(--darktext);
+        color: var(--secondair);
 
-        &:active { transform: scale(0.98); }
+        &:active {
+            transform: scale(0.98);
+        }
 
         &--submit {
             background-color: var(--secondair);
@@ -140,6 +144,12 @@
         &--repair {
             background-color: #d9534f;
             color: white;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+            color: var(--secondair);
+            text-decoration: underline;
         }
     }
 

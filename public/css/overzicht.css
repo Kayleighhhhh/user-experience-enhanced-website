@@ -55,6 +55,11 @@
                     transition: 0.2s;
                     margin-bottom: 4px;
                 }
+
+                &:hover {
+                    color: var(--secondair);
+                    text-decoration: underline;
+                }
             }
 
             &[open] {
@@ -146,7 +151,7 @@
             }
         }
 
-    
+
         .mobile-btn {
             width: 100%;
             padding: 0.8rem;
