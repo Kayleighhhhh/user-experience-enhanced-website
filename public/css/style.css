@@ -129,39 +129,6 @@ li {
     list-style-type: none;
 }
 
-select,
-::picker(select) {
-    appearance: base-select;
-    border: unset;
-    border-radius: 8px;
-    border: .1px solid var(--darktext);
-    scrollbar-color: var(--darktext) transparent;
-    scrollbar-width: thin;
-    background: var(--main);
-}
-
-select::picker-icon {
-    content: "+";
-    transition: .2s rotate;
-}
-
-select:open::picker-icon {
-    transform: rotate(45deg);
-}
-
-option:hover {
-    background-color: var(--tabelfirstcolor);
-
-}
-
-option:checked {
-    background-color: var(--tabelfirstcolor);
-}
-
-option:checked::checkmark {
-    content: "";
-}
-
 .breadcrumbs {
     display: flex;
     grid-column: 1 / -1;
