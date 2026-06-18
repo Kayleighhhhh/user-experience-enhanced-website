@@ -1,8 +1,6 @@
 
-# Enhanced website
-Ontwerp en maak een interactieve website die snel laadt en prettig te gebruiken is.
-
-De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/enhanced-website/blob/main/docs/INSTRUCTIONS.md)
+# Enhanced website instrumenten uitleen
+deze sprint heb ik gewrkt aan een verbeterde versie van het instrumenten uitleen tool van cool kunst en cultuur, hier heb ik vooral gefocused op de gebruikers ervaring bij het navigeren op de overzichtpagina door het redesignene van de table en filters.
 
 
 ## Inhoudsopgave
@@ -10,25 +8,68 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/enhance
   * [Beschrijving](#beschrijving)
   * [Gebruik](#gebruik)
   * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
   * [Bronnen](#bronnen)
   * [Licentie](#licentie)
 
 ## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar je live site 🌐-->
+Belangrijke verbeteringen zijn doorgevoerd in de filters, waardoor gebruikers eenvoudiger instrumenten kunnen vinden binnen grote collecties. Daarnaast is de instrumententabel volledig opnieuw ontworpen met een duidelijkere structuur, betere leesbaarheid en een responsive opzet voor zowel desktop als mobiele apparaten.
+
+Bekijk het resultaat: https://user-experience-enhanced-website-ye7e.onrender.com/instrumenten 
 
 ## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+### User Story
+
+"Als muziekdocent van Cool Kunst en Cultuur wil ik snel een specifiek instrument kunnen vinden en beheren, zodat ik minder tijd kwijt ben aan administratie en de collectie altijd actueel blijft."
+
+Functionaliteiten
+
+Verbeterde Filters
+Instrumenten kunnen eenvoudig worden gefilterd op verschillende eigenschappen, waardoor gebruikers sneller relevante resultaten vinden.
+
+Herontworpen Tabel
+De instrumententabel heeft een nieuwe layout gekregen met een duidelijke hiërarchie, betere scanbaarheid en consistente weergave van gegevens.
+
+Instrumentbeheer
+Instrumenten kunnen worden bekeken, aangepast en beheerd vanuit één centraal overzicht.
+
+Responsive Interface
+Alle functionaliteiten zijn geoptimaliseerd voor gebruik op zowel mobiele apparaten als grotere schermen.
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
 
-## Installatie
-<!-- Bij Installatie staat hoe een andere developer aan jouw repo kan werken -->
+Tijdens dit project lag de nadruk op het verbeteren van de gebruiksvriendelijkheid en toegankelijkheid van het bestaande systeem.
+
+User Experience
+
+Gebruiksvriendelijke Filters
+De filteropties zijn overzichtelijker gemaakt zodat gebruikers sneller door grote hoeveelheden data kunnen navigeren.
+
+Verbeterde Informatiearchitectuur
+De nieuwe tabelstructuur zorgt ervoor dat belangrijke informatie direct zichtbaar is en minder snel over het hoofd wordt gezien.
+
+HTML & Templates
+
+Semantische Structuur
+Er is gebruikgemaakt van HTML5-elementen zoals section, article, nav en form om de structuur van de pagina logisch en toegankelijk op te bouwen.
+
+CSS
+
+Mobile First
+De interface is ontwikkeld volgens een mobile-first aanpak en schaalt vervolgens op naar grotere schermformaten.
+
+CSS Nesting
+Moderne CSS-nesting is toegepast om de stylesheet overzichtelijk en onderhoudbaar te houden.
+
+Relatieve Eenheden
+Voor optimale toegankelijkheid en schaalbaarheid zijn afmetingen voornamelijk opgebouwd met rem en em.
+
+CSS Grid & Flexbox
+Grid en Flexbox zijn gebruikt voor de layout van filters, tabellen en interactieve componenten.
 
 ## Bronnen
+
+MDN Web Docs voor HTML, CSS Grid, Flexbox en CSS Nesting.
+W3C Accessibility Guidelines voor toegankelijkheidsrichtlijnen.
 
 ## Licentie
 
